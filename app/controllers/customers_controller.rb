@@ -4,7 +4,14 @@ class CustomersController < ApplicationController
   end
 
   def create
-    customer = Customer.create(customer_params)
+    customer = Customer.new(customer_params)
+
+    if customer.save
+      render json: customer, status: :created, location: customer
+    else
+      render json: customer.errors, status: :unprocessable_entity
+    end
+
     render json: customer
   end
 
@@ -14,9 +21,13 @@ class CustomersController < ApplicationController
   def destroy
   end
 
-  private
-
   def customer_params
-    params.require(:customer).permit(:first_name, :last_name, :birth_date, :address, :contact, :is_deleted)
+    params.require(:customer).permit(:first_name, :last_name, :contact, :birth_date, :address, :is_deleted)
   end
 end
+
+# curl -v \
+#   -H "Accept: application/json" \
+#   -H "Content-type: application/json" \
+#   -X POST \
+#   -d ' {"customer":{"first_name": "firstname", "last_name": "lastname", "contact":"9607180726"}}' \http://localhost:3000/customers
