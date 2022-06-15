@@ -11,8 +11,6 @@ class CustomersController < ApplicationController
     else
       render json: customer.errors, status: :unprocessable_entity
     end
-
-    render json: customer
   end
 
   def update
@@ -25,9 +23,3 @@ class CustomersController < ApplicationController
     params.require(:customer).permit(:first_name, :last_name, :contact, :birth_date, :address, :is_deleted)
   end
 end
-
-# curl -v \
-#   -H "Accept: application/json" \
-#   -H "Content-type: application/json" \
-#   -X POST \
-#   -d ' {"customer":{"first_name": "firstname", "last_name": "lastname", "contact":"9607180726"}}' \http://localhost:3000/customers
