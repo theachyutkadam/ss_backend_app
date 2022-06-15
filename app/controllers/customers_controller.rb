@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CustomersController < ApplicationController
   def index
     render json: Customer.all
@@ -13,11 +15,9 @@ class CustomersController < ApplicationController
     end
   end
 
-  def update
-  end
+  def update; end
 
-  def destroy
-  end
+  def destroy; end
 
   def customer_params
     params.require(:customer).permit(:first_name, :last_name, :contact, :birth_date, :address, :is_deleted)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
@@ -8,7 +10,7 @@ RSpec.describe Customer, type: :model do
     end
   end
 
-  context "relationship" do
+  context 'relationship' do
     it 'should has_one account' do
       expect(Customer.reflect_on_association(:account).macro).to eq(:has_one)
     end

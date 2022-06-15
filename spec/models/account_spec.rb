@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Account, type: :model do
@@ -8,8 +10,7 @@ RSpec.describe Account, type: :model do
     end
   end
 
-
-  context "relationship" do
+  context 'relationship' do
     it 'should has_many transactions' do
       expect(Account.reflect_on_association(:transactions).macro).to eq(:has_many)
     end
