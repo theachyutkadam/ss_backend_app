@@ -4,7 +4,7 @@ FactoryBot.define do
     credit_amount { "MyString" }
     debit_amount { "MyString" }
     closing_balance { "MyString" }
-    customer { nil }
-    account { nil }
+    customer
+    account
   end
 end

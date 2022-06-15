@@ -7,6 +7,6 @@ FactoryBot.define do
     type { 1 }
     expired_at { "2022-06-15 16:00:54" }
     status { 1 }
-    account { nil }
+    account
   end
 end
