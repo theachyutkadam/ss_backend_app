@@ -2,12 +2,12 @@
 
 FactoryBot.define do
   factory :card do
-    name { 'MyString' }
-    csv { 1 }
-    pin { 'MyString' }
-    number { 'MyString' }
-    type { 1 }
-    expired_at { '2022-06-15 16:00:54' }
+    name { 'Debit' }
+    csv { Faker::Stripe.ccv }
+    pin { Faker::Number.between(from: 1111, to: 9999) }
+    number { Faker::Stripe.valid_card }
+    card_type { 1 }
+    expired_at { Faker::Date.between_except(from: Date.today, to: 10.year.from_now, excepted: Date.today)  }
     status { 1 }
     account
   end

@@ -2,10 +2,10 @@
 
 FactoryBot.define do
   factory :account do
-    type { 1 }
-    balance { 1.5 }
+    account_type { 1 }
+    balance { Faker::Number.number(digits: 5) }
     customer
     status { 1 }
-    description { 'MyString' }
+    description { Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false) }
   end
 end

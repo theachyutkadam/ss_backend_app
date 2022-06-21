@@ -7,7 +7,7 @@ class CreateCards < ActiveRecord::Migration[6.0]
       t.integer :csv
       t.string :pin
       t.string :number
-      t.integer :type
+      t.integer :card_type
       t.datetime :expired_at
       t.integer :status
       t.references :account, null: false, foreign_key: true

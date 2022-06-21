@@ -6,3 +6,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "+++++++++++++start"
+30.times do
+  FactoryBot.create(:transaction)
+  puts Customer.count
+  FactoryBot.create(:card)
+end
+puts "+++++++++++++end"
+puts "+++++++++++++end"
